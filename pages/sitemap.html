@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Map</title>
+
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+  />
+
+ 
+  <link rel="stylesheet" href="../css/stylesheet.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family:  "Lora", serif;
+      color: #333;
+      text-align: center;
+    }
+
+    #navops {
+      color: aliceblue;
+    }
+
+    .navbar {
+      padding: 6px 1rem !important;
+      min-height: 65px;
+      align-items: center;
+    }
+
+    /* Heading section */
+    .heading {
+      height: 352px;
+      background-color: #1c1c28;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .heading h1 {
+      color: #f0f5fb;
+      font-size: 3rem;
+      padding-top: 70px;
+      position: relative;
+    }
+
+    .heading h1::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background-color: #cebb5c;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .heading p {
+      color: #ddd;
+      font-size: 1.6rem;
+      margin-top: 10px;
+    }
+
+    /* Sitemap Section */
+    .bg {
+      background-color: hsl(30, 25%, 90%);
+      padding: 50px 0;
+    }
+
+    .heading2 {
+      color: #000;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      text-transform: uppercase;
+      text-align: left;
+      display: inline-block;
+      padding-left: 15px;
+    }
+
+    .heading2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 15px;
+      width: 60px;
+      height: 3px;
+      background-color: #cebb5c;
+      border-radius: 3px;
+    }
+
+    .sitemap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 15px;
+    }
+
+    .sitemap a {
+      display: block;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 30px;
+      text-decoration: none;
+      color: #000;
+      text-align: left;
+      font-size: 1.125rem;
+      font-weight: 500;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .sitemap a:hover {
+      background-color:#cebb5c;
+  
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    .navbar-nav{width: 685px !important;}
+
+    /* Responsive css */
+    @media (max-width: 576px) {
+      .heading {
+        height: 250px;
+        padding: 20px;
+      }
+
+      .heading h1 {
+        font-size: 2rem;
+      }
+
+      .heading p {
+        font-size: 1rem;
+      }
+
+      .sitemap {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin: 30px 15px;
+      }
+
+      .sitemap a {
+        font-size: 1rem;
+        padding: 20px;
+      }
+
+      .heading2 {
+        font-size: 1.5rem;
+        padding-top: 30px;
+      }
+    }
+
+    @media (min-width: 577px) and (max-width: 992px) {
+      .heading h1 {
+        font-size: 2.5rem;
+      }
+
+      .heading p {
+        font-size: 1.3rem;
+      }
+
+      .sitemap {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 993px) and (max-width: 1200px) {
+      .heading h1 {
+        font-size: 2.8rem;
+      }
+
+      .heading p {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light cln">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img
+          src="../images/Black_and_White_Minimalist_Globe_Illustration_Foreign_Language_Course_Logo__3_-removebg-preview.png"
+          alt="Logo"
+          width="200"
+        />
+      </a>
+
+      <!-- Toggler -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="../INDEX.HTML">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="./history.html">History</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact us page.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="./sitemap.html">Sitemap</a></li>
+          <li class="nav-item"><a class="nav-link" href="./feedback.html">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="./travel.html">Travel</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Heading -->
+  <div class="heading">
+    <h1>Site Map</h1>
+    <p>Navigate through all pages of Seven Wonders Explorer</p>
+  </div>
+
+  <!-- Sitemap Section -->
+  <section class="bg">
+    <h2 class="heading2" style="text-transform: capitalize;">Navigation</h2>
+    <div class="sitemap">
+      <!-- <a href="../INDEX.HTML">Home</a>
+      <a href="./gallery.html">Gallery</a>
+      <a href="./history.html">History</a>
+      <a href="./about.html">About</a>
+      <a href="./contact us page.html ">Contact</a>
+      <a href="./feedback.html">Feedback</a>
+      <a href="./travel.html">Travel</a> -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d39869.99881328403!2d68.33221123532128!3d25.378983078078825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1761807610602!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer">
+      <div class="container footer-content">
+        <div class="row">
+          <div class="col">
+            <img
+              src="../images/Black_and_White_Minimalist_Globe_Illustration_Foreign_Language_Course_Logo__3_-removebg-preview.png"
+              alt="Footer Logo"
+              width="150"
+            />
+            <p>
+              Explore the magnificent Seven Wonders of the World and discover
+              the rich history behind these architectural marvels.
+            </p>
+            <p>
+              <i class="bi bi-facebook"></i>
+              <i class="bi bi-twitter-x"></i>
+              <i class="bi bi-github"></i>
+              <i class="bi bi-whatsapp"></i>
+            </p>
+          </div>
+
+          <div class="col footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="../INDEX.HTML">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <!-- <li><a href="./history.html">History</a></li> -->
+              <li><a href="./gallery.html">Gallery</a></li>
+              <li><a href="./feedback.html">Feedback</a></li>
+            </ul>
+          </div>
+
+          <div class="col footer-column">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><i class="bi bi-geo-alt"></i> ABC, Hyderabad</li>
+              <li><i class="bi bi-telephone-fill"></i> +92 437487</li>
+              <li><i class="bi bi-envelope-at-fill"></i> info@wondersofworld.com</li>
+            </ul>
+          </div>
+
+          <div id="border">
+            <p id="para">© 2025 7Wonders. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

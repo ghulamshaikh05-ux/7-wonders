@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   
+   <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+  />
+<link rel="stylesheet" href="../css/stylesheet.css"><style>
+        
+        :root {
+            --primary: black; 
+            --primary-dark: #cebb5c;
+            --secondary:#cebb5c;
+            --dark: #161622;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:  "Lora", serif,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color:hsl(30 25% 90%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        
+       
+        /* Hero Section */
+        .hero {
+           background-color: #1c1c28; display: flex; align-items: center;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            height: 400px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem; padding-top: 80px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 2rem; color: rgb(227, 224, 224);
+        }
+
+        /* Feedback Section */
+        .feedback-section {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .feedback-form-container {
+            flex: 1;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .feedback-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .section-title {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .form-group input, 
+        .form-group textarea, 
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus, 
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .rating-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rating-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .rating-star {
+            font-size: 1.8rem;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .rating-star:hover,
+        .rating-star.active {
+            color: var(--secondary);
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark); color: #161622;
+        }
+
+        .info-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .info-content p {
+            color: var(--gray);
+        }
+
+        /* User Feedback Section */
+        .user-feedback-section {
+            margin-bottom: 4rem;
+        }
+
+        .user-feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .user-feedback-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .user-feedback-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .user-feedback-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .user-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .user-rating {
+            color: var(--secondary);
+        }
+
+        .feedback-subject {
+            display: inline-block;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .user-feedback-text {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .user-feedback-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: rgba(37, 99, 235, 0.1);
+            position: absolute;
+            top: -1.5rem;
+            left: -0.5rem;
+        }
+
+        .feedback-date {
+            color: var(--gray);
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: var(--success);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .success-message i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gray);
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+        }
+
+        
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #334155;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .feedback-section {
+                flex-direction: column;
+            }
+
+            .user-feedback-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light cln">
+    <div class="container connav">
+      
+      <a class="navbar-brand" href="#">
+        <img
+          src="../images/Black_and_White_Minimalist_Globe_Illustration_Foreign_Language_Course_Logo__3_-removebg-preview.png"
+          alt="Logo" height="84px"
+        
+        />
+      </a>
+
+      <!-- Toggler -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="../INDEX.HTML">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="./history.html">History</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact us page.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="./sitemap.html">Sitemap</a></li>
+          <li class="nav-item"><a class="nav-link" href="./feedback.html">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="./travel.html">Travel</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Share Your Experience</h1>
+            <p>We value your feedback to help us improve and provide better services for all travelers exploring the wonders of the world.</p>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="container">
+        <div class="feedback-section">
+            <div class="feedback-form-container">
+                <div class="section-title">
+                    <h2>Send Us Your Feedback</h2>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank You for Your Feedback!</h3>
+                    <p>Your feedback has been submitted and will appear below.</p>
+                </div>
+
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Feedback</option>
+                            <option value="booking">Booking Experience</option>
+                            <option value="website">Website Experience</option>
+                            <option value="service">Customer Service</option>
+                            <option value="suggestion">Suggestion</option>
+                            <option value="complaint">Complaint</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="rating-label">Your Rating</div>
+                        <div class="rating-group" id="ratingGroup">
+                            <i class="fas fa-star rating-star" data-rating="1"></i>
+                            <i class="fas fa-star rating-star" data-rating="2"></i>
+                            <i class="fas fa-star rating-star" data-rating="3"></i>
+                            <i class="fas fa-star rating-star" data-rating="4"></i>
+                            <i class="fas fa-star rating-star" data-rating="5"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="Tell us about your experience, suggestions, or any issues you encountered..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Feedback</button>
+                </form>
+            </div>
+
+            <div class="feedback-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>We Value Your Opinion</h3>
+                        <p>Your feedback helps us improve our services and create better experiences for all travelers exploring the world's wonders.</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Quick Response</h3>
+                        <p>We strive to respond to all feedback within 24-48 hours during business days.</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Privacy Protected</h3>
+                        <p>Your information is secure and will never be shared with third parties without your consent.</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Continuous Improvement</h3>
+                        <p>We regularly review feedback to enhance our services and website functionality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Feedback Section -->
+    <section class="container user-feedback-section">
+        <div class="section-title">
+            <h2>All Feedbacks</h2>
+        </div>
+        
+        <div class="user-feedback-grid" id="userFeedbackGrid">
+            <!-- User feedback cards will be dynamically added here -->
+            <div class="empty-state" id="emptyState">
+                <i class="far fa-comment-dots"></i>
+                <h3>No Feedback Yet</h3>
+                <p>Your submitted feedback will appear here. Be the first to share your experience!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <!-- Footer -->
+  <footer>
+    <div class="footer">
+      <div class="container footer-content">
+        <div class="row">
+          <div class="col">
+            <img
+              src="../images/Black_and_White_Minimalist_Globe_Illustration_Foreign_Language_Course_Logo__3_-removebg-preview.png"
+              alt="Footer Logo"
+              width="150"
+            />
+            <p>
+              Explore the magnificent Seven Wonders of the World and discover
+              the rich history behind these architectural marvels.
+            </p>
+            <p>
+              <i class="bi bi-facebook"></i>
+              <i class="bi bi-twitter-x"></i>
+              <i class="bi bi-github"></i>
+              <i class="bi bi-whatsapp"></i>
+            </p>
+          </div>
+
+          <div class="col footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="../INDEX.HTML">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <!-- <li><a href="./history.html">History</a></li> -->
+              <li><a href="./gallery.html">Gallery</a></li>
+              <li><a href="./feedback.html">Feedback</a></li>
+            </ul>
+          </div>
+
+          <div class="col footer-column">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><i class="bi bi-geo-alt"></i> ABC, Hyderabad</li>
+              <li><i class="bi bi-telephone-fill"></i> +92 437487</li>
+              <li><i class="bi bi-envelope-at-fill"></i> info@wondersofworld.com</li>
+            </ul>
+          </div>
+
+          <div id="border">
+            <p id="para">© 2025 7Wonders. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script>
+        // Star Rating Functionality
+        const stars = document.querySelectorAll('.rating-star');
+        let selectedRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                selectedRating = parseInt(this.getAttribute('data-rating'));
+                
+                // Update star display
+                stars.forEach(s => {
+                    if (parseInt(s.getAttribute('data-rating')) <= selectedRating) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+
+            // Hover effect
+            star.addEventListener('mouseover', function() {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                
+                stars.forEach(s => {
+                    if (parseInt(s.getAttribute('data-rating')) <= rating) {
+                        s.style.color = 'var(--secondary)';
+                    } else {
+                        s.style.color = '#e2e8f0';
+                    }
+                });
+            });
+
+            star.addEventListener('mouseout', function() {
+                stars.forEach(s => {
+                    if (parseInt(s.getAttribute('data-rating')) <= selectedRating) {
+                        s.style.color = 'var(--secondary)';
+                    } else {
+                        s.style.color = '#e2e8f0';
+                    }
+                });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate form
+            if (!name || !email || !subject || !message || selectedRating === 0) {
+                alert('Please fill in all fields and provide a rating before submitting.');
+                return;
+            }
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Create feedback object
+            const feedback = {
+                name,
+                email,
+                subject,
+                rating: selectedRating,
+                message,
+                date: new Date().toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })
+            };
+            
+            // Add feedback to display
+            addFeedbackToDisplay(feedback);
+            
+            // Reset form
+            document.getElementById('feedbackForm').reset();
+            
+            // Reset stars
+            stars.forEach(star => {
+                star.classList.remove('active');
+                star.style.color = '#e2e8f0';
+            });
+            selectedRating = 0;
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+
+        // Function to add feedback to display
+        function addFeedbackToDisplay(feedback) {
+            // Hide empty state if it's the first feedback
+            const emptyState = document.getElementById('emptyState');
+            if (emptyState) {
+                emptyState.style.display = 'none';
+            }
+            
+            // Create feedback card
+            const feedbackCard = document.createElement('div');
+            feedbackCard.className = 'user-feedback-card';
+            
+            // Get initials for avatar
+            const initials = feedback.name.split(' ').map(n => n[0]).join('').toUpperCase();
+            
+            // Create star rating HTML
+            let starsHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= feedback.rating) {
+                    starsHTML += '<i class="fas fa-star"></i>';
+                } else {
+                    starsHTML += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            // Set card content
+            feedbackCard.innerHTML = `
+                <div class="user-feedback-header">
+                    <div class="user-avatar">${initials}</div>
+                    <div class="user-info">
+                        <h4>${feedback.name}</h4>
+                        <div class="user-rating">
+                            ${starsHTML}
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback-subject">${getSubjectText(feedback.subject)}</div>
+                <p class="user-feedback-text">${feedback.message}</p>
+                <div class="feedback-date">Submitted on ${feedback.date}</div>
+            `;
+            
+            // Add card to grid (at the beginning)
+            const feedbackGrid = document.getElementById('userFeedbackGrid');
+            feedbackGrid.insertBefore(feedbackCard, feedbackGrid.firstChild);
+        }
+
+        // Helper function to get subject text
+        function getSubjectText(subjectValue) {
+            const subjects = {
+                'general': 'General Feedback',
+                'booking': 'Booking Experience',
+                'website': 'Website Experience',
+                'service': 'Customer Service',
+                'suggestion': 'Suggestion',
+                'complaint': 'Complaint'
+            };
+            return subjects[subjectValue] || 'Feedback';
+        }
+
+        // Add some sample feedback for demonstration
+        window.addEventListener('DOMContentLoaded', () => {
+            // You can remove these sample feedback entries if you want
+            const sampleFeedbacks = [
+                {
+                    name: 'John Smith',
+                    email: 'john@example.com',
+                    subject: 'booking',
+                    rating: 5,
+                    message: 'The booking process was incredibly smooth and the trip to the Great Pyramid exceeded all my expectations. The guides were knowledgeable and made the experience unforgettable.',
+                    date: 'October 15, 2023 at 10:30 AM'
+                },
+                {
+                    name: 'Maria Garcia',
+                    email: 'maria@example.com',
+                    subject: 'suggestion',
+                    rating: 4,
+                    message: 'I loved the website design and found it very user-friendly. One suggestion would be to add more photos for each wonder to help with trip planning.',
+                    date: 'October 12, 2023 at 3:45 PM'
+                }
+            ];
+            
+            // Add sample feedbacks to display
+            sampleFeedbacks.forEach(feedback => {
+                addFeedbackToDisplay(feedback);
+            });
+        });
+    </script>
+</body>
+</html>

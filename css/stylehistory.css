@@ -1,0 +1,90 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #1c1c28;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  animation: slideUp 1s ease both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  background-color:hsl(30, 25%, 90%);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  
+  padding: 40px 50px;
+  width: 90%;
+  max-width: 700px; border-top: 3px solid black;
+}
+
+h1 {
+  color: #000000;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.wonder-image {
+  display: block;
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing:  22px; 
+}
+
+.info-table th,
+.info-table td {
+  text-align: left;
+  padding: 16px 20px;
+  background-color:hsl(30, 25%, 90%);
+  border-radius: 12px;
+  vertical-align: top;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); font-size: 1.3rem
+}
+
+.info-table th {
+  background-color: hsl(30, 25%, 90%);
+  width: 30%;
+  font-size: 1.4rem;
+}
+
+.back-btn {
+  display: block;
+  text-align: center;
+  background-color: #1c1c28;
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 14px 0;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 25px; margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  background-color: #cebb5c;
+  transform: translateY(-2px); color: #000000; font-size: 1.3rem;
+}

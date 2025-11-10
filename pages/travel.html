@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
+
+  
+  <link
+  
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+  />
+
+  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet"
+  />
+
+  
+  <link rel="stylesheet" href="../css/stylesheet.css" />
+</head>
+
+    <style>
+        :root {
+            --primary: #cebb5c;
+    
+            --primary-dark: #cebb5c;
+    
+            --secondary:#cebb5c;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:  "Lora", serif'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color:hsl(30, 25%, 90%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        
+       
+        
+        .hero {
+            background-color: #1c1c28;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem; padding-top: 60px;
+        }
+        
+    .hero h1 {
+      color: #ffffff;
+      padding-top: 50px;
+      position: relative;
+    }
+
+    .hero h1::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 3px;
+      background-color: #cebb5c;
+      bottom: -8px;
+      left: 21%;
+      transform: translateX(-50%);
+    }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+         color: white;}
+
+       
+        .search-section {
+            background-color:hsl(30, 25%, 90%);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 3rem;
+        }
+
+        .search-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--gray);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select {
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .search-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            align-self: end;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+       
+        .results-section {
+            display: none;
+            margin-bottom: 3rem;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-count {
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        .sort-options {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .sort-options select {
+            padding: 0.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .result-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .result-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .result-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .result-details {
+            padding: 1.5rem;
+        }
+
+        .result-route {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .route-segment {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .route-time {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .route-place {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .route-connector {
+            flex-grow: 1;
+            height: 2px;
+            background-color: #e2e8f0;
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        .route-connector::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .result-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .result-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .book-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .details-btn {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .details-btn:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+
+       
+        .wonders-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .wonders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .wonder-card {
+            background-color: hsl(30, 25%, 90%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .wonder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .wonder-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .wonder-content {
+            padding: 1.5rem;
+        }
+
+        .wonder-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .wonder-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .wonder-location i {
+            color: var(--primary);
+        }
+
+        .wonder-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .wonder-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+      .deals-section {
+    margin: 3rem auto; /* centers the section horizontally */
+    max-width: 1200px; /* keeps it neatly contained */
+    text-align: center; /* centers headings and text inside */
+}
+
+.deals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-content: center; /* centers grid items */
+}
+
+.deal-card {
+    background-color: hsl(30, 25%, 90%); /* ✅ fixed syntax */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow, 0 2px 8px rgba(0,0,0,0.1));
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.deal-card:hover {
+    transform: translateY(-5px); /* subtle hover effect */
+}
+
+.deal-img-container {
+    position: relative;
+}
+
+.deal-badge {
+    background-color: var(--secondary, #cebb5c);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 4px;
+}
+
+.deal-img {
+    height: 160px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.deal-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.deal-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+
+        .deal-details {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .deal-price {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+        }
+
+        .discounted-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+      
+
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+
+            .wonders-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+ <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light cln">
+    <div class="container">
+    
+     
+        <img
+          src="../images/Black_and_White_Minimalist_Globe_Illustration_Foreign_Language_Course_Logo__3_-removebg-preview.png"
+          alt="Logo"
+          width="150" height="84"
+        />
+     
+
+    
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="../INDEX.HTML">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="./history.html">History</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact us page.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="../pages/sitemap.html">Sitemap</a></li>
+          <li class="nav-item"><a class="nav-link" href="../pages/feedback.html">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="../pages/travel.html">Travel</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+   
+    <section class="hero">
+        <div class="container">
+            <h1>Travel to the World's Greatest Wonders</h1>
+            <p>Book your flights and transportation to explore the most breathtaking monuments across the globe. Find the best deals and plan your journey today.</p>
+        </div>
+    </section>
+
+   
+    <section class="container">
+        <div class="search-section">
+            <div class="search-tabs">
+                <div class="tab active" data-tab="flights">Flights</div>
+                <div class="tab" data-tab="buses">Buses</div>
+                <div class="tab" data-tab="packages">Packages</div>
+            </div>
+            <form class="search-form" id="searchForm">
+                <div class="form-group">
+                    <label for="from">From</label>
+                    <input type="text" id="from" placeholder="Departure city" required>
+                </div>
+                <div class="form-group">
+                    <label for="to">To</label>
+                    <select id="to" required>
+                        <option value="">Select destination</option>
+                        <option value="rome">Rome, Italy (Colosseum)</option>
+                        <option value="paris">Paris, France (Eiffel Tower)</option>
+                        <option value="cairo">Cairo, Egypt (Pyramids of Giza)</option>
+                        <option value="beijing">Beijing, China (Great Wall)</option>
+                        <option value="rio">Rio de Janeiro, Brazil (Christ the Redeemer)</option>
+                        <option value="mexico">Yucatan, Mexico (Chichen Itza)</option>
+                        <option value="jordan">Petra, Jordan</option>
+                        <option value="india">Agra, India (Taj Mahal)</option>
+                        <option value="peru">Machu Picchu, Peru</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="departure">Departure</label>
+                    <input type="date" id="departure" required>
+                </div>
+                <div class="form-group">
+                    <label for="return">Return</label>
+                    <input type="date" id="return">
+                </div>
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+        </div>
+    </section>
+
+  
+    <section class="container results-section" id="resultsSection">
+        <div class="results-header">
+            <h2>Search Results</h2>
+            <div class="results-count" id="resultsCount">Showing 0 results</div>
+            <div class="sort-options">
+                <label for="sort">Sort by:</label>
+                <select id="sort">
+                    <option value="price">Price (Low to High)</option>
+                    <option value="duration">Duration</option>
+                    <option value="departure">Departure Time</option>
+                </select>
+            </div>
+        </div>
+        <div class="results-grid" id="resultsGrid">
+           
+        </div>
+    </section>
+
+ 
+    <section class="container wonders-section">
+        <div class="section-title">
+            <h2>Wonders of the World</h2>
+        </div>
+        <div class="wonders-grid">
+          
+            <div class="wonder-card">
+                <img src="../images/pyramid.jpg" alt="Great Pyramid of Giza" class="wonder-img">
+                <div class="wonder-content">
+                    <h3>Great Pyramid of Giza</h3>
+                    <div class="wonder-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Cairo, Egypt</span>
+                    </div>
+                    <p class="wonder-description">The oldest and largest of the three pyramids in the Giza pyramid complex bordering present-day Giza in Greater Cairo, Egypt.</p>
+                    <div class="wonder-actions">
+                        <div class="price">From $799</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="wonder-card">
+                <img src="../images/wallOfChina.jpg" alt="Great Wall of China" class="wonder-img">
+                <div class="wonder-content">
+                    <h3>Great Wall of China</h3>
+                    <div class="wonder-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Beijing, China</span>
+                    </div>
+                    <p class="wonder-description">A series of fortifications made of stone, brick, tamped earth, wood, and other materials, generally built along an east-to-west line.</p><br>
+                    <div class="wonder-actions">
+                        <div class="price">From $649</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+         
+            <div class="wonder-card">
+                <img src="../images/bharath-reddy-3UDKNMKfFss-unsplash.jpg" alt="Taj Mahal" class="wonder-img">
+                <div class="wonder-content">
+                    <h3>Taj Mahal</h3>
+                    <div class="wonder-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Agra, India</span>
+                    </div>
+                    <p class="wonder-description">An ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.</p><br><br>
+                    <div class="wonder-actions">
+                        <div class="price">From $549</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="wonder-card">
+                <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Colosseum" class="wonder-img">
+                <div class="wonder-content">
+                    <h3>Colosseum</h3>
+                    <div class="wonder-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Rome, Italy</span>
+                    </div>
+                    <p class="wonder-description">An oval amphitheatre in the centre of the city of Rome, Italy. Built of travertine limestone, tuff, and brick-faced concrete.</p><br>
+                    <div class="wonder-actions">
+                        <div class="price">From $459</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="wonder-card">
+                <img src="../images/christ.jpg" alt="Christ the Redeemer" class="wonder-img">
+                <div class="wonder-content">
+                    <h3>Christ the Redeemer</h3>
+                    <div class="wonder-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Rio de Janeiro, Brazil</span>
+                    </div>
+                    <p class="wonder-description">An Art Deco statue of Jesus Christ in Rio de Janeiro, Brazil, created by French sculptor Paul Landowski.</p><br><br>
+                    <div class="wonder-actions">
+                        <div class="price">From $699</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="wonder-card">
+                <img src="../images/chichen.jfif" alt="Chichen Itza" class="wonder-img">
+                <div class="wonder-content">
+                    <h3>Chichen Itza</h3>
+                    <div class="wonder-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Yucatan, Mexico</span>
+                    </div>
+                    <p class="wonder-description">A large pre-Columbian city built by the Maya people of the Terminal Classic period. The archaeological site is located in Tinúm Municipality.</p>
+                    <div class="wonder-actions">
+                        <div class="price">From $499</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="wonder-card">
+                <img src="../images/machu.jpg" alt="Machu Picchu" class="wonder-img">
+                <div class="wonder-content">
+                    <h3>Machu Picchu</h3>
+                    <div class="wonder-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Cusco Region, Peru</span>
+                    </div>
+                    <p class="wonder-description">A 15th-century Inca citadel located on a mountain ridge 2,430 metres above sea level. It is located in the Cusco Region, Urubamba Province.</p>
+                    <div class="wonder-actions">
+                        <div class="price">From $749</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="wonder-card">
+                <img src="../images/petra.jpg" alt="Petra" class="wonder-img">
+                <div class="wonder-content">
+                    <h3>Petra</h3>
+                    <div class="wonder-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ma'an Governorate, Jordan</span>
+                    </div>
+                    <p class="wonder-description">A historical and archaeological city in southern Jordan. Petra lies around Jabal Al-Madbah in a basin surrounded by mountains.</p><br>
+
+                    <div class="wonder-actions">
+                        <div class="price">From $599</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="container deals-section">
+        <div class="section-title">
+            <h2>Special Travel Deals</h2>
+        </div>
+        <div class="deals-grid">
+            
+            <div class="deal-card">
+                <div class="deal-img-container">
+                    <img src="../images/europe.jpg" alt="Flight Deal" class="deal-img">
+                    <div class="deal-badge">Save 25%</div>
+                </div>
+                <div class="deal-content">
+                    <h3>Europe Wonders Tour</h3>
+                    <p class="deal-details">Visit the Colosseum, Eiffel Tower, and more with this exclusive package. Includes flights and 7-night accommodation.</p>
+                    <div class="deal-price">
+                        <div>
+                            <div class="original-price">$1,899</div>
+                            <div class="discounted-price">$1,424</div>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="deal-card">
+                <div class="deal-img-container">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Bus Deal" class="deal-img">
+                    <div class="deal-badge">Limited Time</div>
+                </div>
+                <div class="deal-content">
+                    <h3>Ancient Wonders Bus Tour</h3>
+                    <p class="deal-details">Explore the pyramids, Petra and more with our guided bus tour. All transportation and guided tours included.</p>
+                    <div class="deal-price">
+                        <div>
+                            <div class="original-price">$1,299</div>
+                            <div class="discounted-price">$999</div>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="deal-card">
+                <div class="deal-img-container">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Package Deal" class="deal-img">
+                    <div class="deal-badge">Family Offer</div>
+                </div>
+                <div class="deal-content">
+                    <h3>Asia Wonders Family Package</h3>
+                    <p class="deal-details">Perfect for families! Visit the Great Wall and Taj Mahal. Includes special activities for kids and flexible itinerary.</p>
+                    <div class="deal-price">
+                        <div>
+                            <div class="original-price">$3,499</div>
+                            <div class="discounted-price">$2,799</div>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Footer -->
+  <footer>
+    <div class="footer">
+      <div class="container footer-content">
+        <div class="row">
+          <div class="col">
+            <img
+              src="../images/Black_and_White_Minimalist_Globe_Illustration_Foreign_Language_Course_Logo__3_-removebg-preview.png"
+              alt="Footer Logo"
+              width="150"
+            />
+            <p>
+              Explore the magnificent Seven Wonders of the World and discover
+              the rich history behind these architectural marvels.
+            </p>
+            <p>
+              <i class="bi bi-facebook"></i>
+              <i class="bi bi-twitter-x"></i>
+              <i class="bi bi-github"></i>
+              <i class="bi bi-whatsapp"></i>
+            </p>
+          </div>
+
+          <div class="col footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="../INDEX.HTML">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <!-- <li><a href="./history.html">History</a></li> -->
+              <li><a href="./gallery.html">Gallery</a></li>
+              <li><a href="./feedback.html">Feedback</a></li>
+            </ul>
+          </div>
+
+          <div class="col footer-column">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><i class="bi bi-geo-alt"></i> ABC, Hyderabad</li>
+              <li><i class="bi bi-telephone-fill"></i> +92 437487</li>
+              <li><i class="bi bi-envelope-at-fill"></i> info@wondersofworld.com</li>
+            </ul>
+          </div>
+
+          <div id="border">
+            <p id="para">© 2025 7Wonders. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+   
+   
+
+    <script>
+      
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+               
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+            
+                tab.classList.add('active');
+            });
+        });
+
+     
+        document.querySelectorAll('.book-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const wonderCard = this.closest('.wonder-card') || this.closest('.deal-card');
+                const wonderName = wonderCard.querySelector('h3').textContent;
+                alert(`Thank you for your interest in ${wonderName}! Our travel experts will contact you shortly to complete your booking.`);
+            });
+        });
+
+        
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const departure = document.getElementById('departure').value;
+            const returnDate = document.getElementById('return').value;
+            
+            if (!from || !to || !departure) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+           
+            const activeTab = document.querySelector('.tab.active').getAttribute('data-tab');
+            
+         
+            document.getElementById('resultsSection').style.display = 'block';
+            
+           
+            generateSearchResults(from, to, departure, returnDate, activeTab);
+            
+           
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        
+        document.getElementById('sort').addEventListener('change', function() {
+            const sortBy = this.value;
+            sortResults(sortBy);
+        });
+
+       
+        function generateSearchResults(from, to, departure, returnDate, type) {
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = '';
+            
+           
+            const toSelect = document.getElementById('to');
+            const destination = toSelect.options[toSelect.selectedIndex].text;
+            
+           
+            const results = [
+                {
+                    price: Math.floor(Math.random() * 500) + 300,
+                    departureTime: '08:00',
+                    arrivalTime: '20:30',
+                    duration: '12h 30m',
+                    stops: 1,
+                    airline: 'Global Airways',
+                    type: type
+                },
+                {
+                    price: Math.floor(Math.random() * 500) + 300,
+                    departureTime: '14:15',
+                    arrivalTime: '18:45',
+                    duration: '14h 30m',
+                    stops: 0,
+                    airline: 'Sky Travel',
+                    type: type
+                },
+                {
+                    price: Math.floor(Math.random() * 500) + 300,
+                    departureTime: '06:30',
+                    arrivalTime: '19:15',
+                    duration: '12h 45m',
+                    stops: 1,
+                    airline: 'World Airlines',
+                    type: type
+                },
+                {
+                    price: Math.floor(Math.random() * 500) + 300,
+                    departureTime: '21:45',
+                    arrivalTime: '11:20',
+                    duration: '13h 35m',
+                    stops: 2,
+                    airline: 'Continental Express',
+                    type: type
+                }
+            ];
+            
+            
+            results.forEach(result => {
+                const resultCard = document.createElement('div');
+                resultCard.className = 'result-card';
+                
+                resultCard.innerHTML = `
+                    <div class="result-header">
+                        <div class="result-price">$${result.price}</div>
+                        <div class="result-type">${type.charAt(0).toUpperCase() + type.slice(1)}</div>
+                    </div>
+                    <div class="result-details">
+                        <div class="result-route">
+                            <div class="route-segment">
+                                <div class="route-time">${result.departureTime}</div>
+                                <div class="route-place">${from}</div>
+                            </div>
+                            <div class="route-connector"></div>
+                            <div class="route-segment">
+                                <div class="route-time">${result.arrivalTime}</div>
+                                <div class="route-place">${destination}</div>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            <div>Duration: ${result.duration}</div>
+                            <div>Stops: ${result.stops}</div>
+                            <div>${result.airline}</div>
+                        </div>
+                        <div class="result-actions">
+                            <button class="book-btn">Book Now</button>
+                            <button class="details-btn">Details</button>
+                        </div>
+                    </div>
+                `;
+                
+                resultsGrid.appendChild(resultCard);
+            });
+            
+            
+            document.getElementById('resultsCount').textContent = `Showing ${results.length} results`;
+            
+            
+            document.querySelectorAll('.book-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const from = document.getElementById('from').value;
+                    const to = document.getElementById('to').options[document.getElementById('to').selectedIndex].text;
+                    const price = this.closest('.result-card').querySelector('.result-price').textContent;
+                    alert(`Booking confirmed from ${from} to ${to} for ${price}!`);
+                });
+            });
+            
+            document.querySelectorAll('.details-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const from = document.getElementById('from').value;
+                    const to = document.getElementById('to').options[document.getElementById('to').selectedIndex].text;
+                    alert(`Showing detailed information for travel from ${from} to ${to}`);
+                });
+            });
+        }
+
+     
+        function sortResults(sortBy) {
+            const resultsGrid = document.getElementById('resultsGrid');
+            const results = Array.from(resultsGrid.children);
+            
+            results.sort((a, b) => {
+                const aPrice = parseInt(a.querySelector('.result-price').textContent.replace('$', ''));
+                const bPrice = parseInt(b.querySelector('.result-price').textContent.replace('$', ''));
+                
+                if (sortBy === 'price') {
+                    return aPrice - bPrice;
+                } else {
+                   
+                    return aPrice - bPrice;
+                }
+            });
+            
+           
+            resultsGrid.innerHTML = '';
+            results.forEach(result => resultsGrid.appendChild(result));
+        }
+
+      
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('departure').setAttribute('min', today);
+        
+       
+        document.getElementById('departure').addEventListener('change', function() {
+            document.getElementById('return').setAttribute('min', this.value);
+        });
+    </script>
+</body>
+</html>
